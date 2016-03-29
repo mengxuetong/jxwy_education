@@ -1,0 +1,63 @@
+
+<div class="header navbar navbar-material-light-blue-500 navbar-fixed-top top-style">
+    <div class="container" style="height: 66px;">
+        <div class="col-xs-2">
+            <h3><a ui-sref="home.info" style="color: #fff;">家校无忧</a></h3>
+        </div>
+        <div class="col-xs-8" style="min-width:475px;">
+            <div class="pull-right">
+                <!--<div class="header-img-wrap">-->
+                    <!--<a ui-sref="home.info"><img alt="用户头像" class="img-circle header-img-size"></a>-->
+                <!--</div>-->
+                <div class="classes-info" style="border-left: none;">
+                    {{user.userName}},你好<br />
+                </div>
+                <div class="classes-info">
+                    <span ng-bind="user.institutional_name"></span><br />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2 m-t-8">
+            <a class="logout-btn btn btn-material-light-blue-800 btn-flat pull-right" ng-click="logout()">退出</a>
+        </div>
+    </div>
+</div>
+<div class="clearfix container content" ng-cloak content-height>
+    <div class="bg-white w-h left-cont">
+        <ul class="nav nav-stacked my-nav">
+            <li><a ui-sref="home.organization" class="btn btn-lg btn-raised btn-default text-left" ng-class="{'btn-material-light-blue-500': state.includes('home.organization')}"><span class="col col-xs-3"><i class="fa fa-group fa-lg"></i></span>&nbsp;教育体系</a></li>
+            <li><a ui-sref="home.notice.list" class="btn btn-lg btn-raised btn-default text-left" ng-class="{'btn-material-light-blue-500': state.includes('home.notice')}"><span class="col col-xs-3"><i class="fa fa-volume-up fa-lg"></i></span>&nbsp;通知</a></li>
+            <li><a ui-sref="home.usermanager.list" class="btn btn-lg btn-raised btn-default text-left" ng-class="{'btn-material-light-blue-500': state.includes('home.usermanager')}"><span class="col col-xs-3"><i class="fa fa-people fa-lg"></i></span>&nbsp;用户管理</a></li>
+        </ul>
+    </div>
+    <div class="bg-white w-h flexbox right-cont">
+        <div class="r-float-wrap">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+<!--确认对话框-->
+<script type="text/ng-template" id="confirm.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{confirm.title}}</h3>
+    </div>
+    <div class="modal-body">
+        {{confirm.content}}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+    </div>
+</script>
+<!--提示框-->
+<script type="text/ng-template" id="alert.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{alertModal.title}}</h3>
+    </div>
+    <div class="modal-body">
+        {{alertModal.content}}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+    </div>
+</script>

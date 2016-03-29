@@ -1,0 +1,25 @@
+{
+  "name": "jxwyweb",
+  "description": "jiaxiaowuyou for school or parents",
+  "main": "Gruntfile.js",
+  "authors": [
+    "mengxt"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "jiaxiaowuyou"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  }
+}

@@ -1,0 +1,106 @@
+@charset "utf-8";
+.dewFace {
+	position: absolute;
+	bottom: 54px;
+	left: 0;
+	margin: 0px;
+	z-index: 1;
+	padding: 6px 3px;
+	background: #fff;
+	border: 1px #eee solid;
+	text-align:center;
+}
+.dewFace a {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	padding: 3px;
+	text-align: center;
+}
+.dewFace a img {
+	cursor: pointer;
+	border: 1px #fff solid;
+}
+.dewFace a:hover img { border: 1px #ddd dashed; }
+
+.emotion {
+	display: inline-block;
+	*display:inline;
+	*zoom:1;
+	width: auto;
+	line-height: 26px;
+	height: 25px;
+	background: url("../images/face_icon.png") no-repeat left center;
+	background-size: 17px 17px;
+	padding-left: 20px;
+	padding-right:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #999;
+}
+.emotion:hover { background-position: left center; }
+.sound {
+	display: inline-block;
+	*display:inline;
+	*zoom:1;
+	width: auto;
+	line-height: 26px;
+	height: 25px;
+	background: url("../images/voice_icon.png") no-repeat left center;
+	background-size: 16px 17px;
+	padding-left: 20px;
+	padding-right:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #999;
+}
+.sound:hover { background-position: left center; }
+.picture {
+	display: inline-block;
+	*display:inline;
+	*zoom:1;
+	width: auto;
+	line-height: 26px;
+	height: 25px;
+	background: url("../images/imgfile_icon.png") no-repeat left center;
+	background-size: 16px 16px;
+	padding-left: 20px;
+	padding-right:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #999;
+	position: relative;
+}
+.picture:hover { background-position: left center; }
+.picture input {
+	position: absolute;
+	width: 80px;
+	line-height: 25px;
+	height: 25px;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+.input-add {
+}
+.input-add-box {
+	padding:5px 0;
+	border-top: 2px solid #ddd;
+	background:#fff;
+}
+.input-add-box>div {
+	border-bottom:1px dashed #ddd;
+}
+.input-add-box>div:last-child {
+	border-bottom:none;
+}
+.dewFace img{
+	width: 24px;
+	height: 24px;
+}

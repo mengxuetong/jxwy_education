@@ -1,0 +1,60 @@
+<div class="m-t-15 p-l-r-15">
+    <div class="sub-nav">
+        <a href="javascript:void(0)" ui-sref="home.usermanager.list">用户列表</a>/添加用户
+    </div>
+    <div class="row">
+        <div class="col-xs-10 m-auto" style="float: none;">
+            <form class="">
+                <div class="form-group clearfix">
+                    <label for="uname" class="col-xs-2 control-label">用户名</label>
+                    <div class="col-xs-10">
+                        <input name="uname" ng-maxlength="50" maxlength="50" required="required" style="resize: none;" contenteditable="true" id="uname" class="form-control" rows="10" placeholder="这里输入用户名（最多50个字符）" ng-model="newUsers.userName" />
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label for="udepartment" class="col-xs-2 control-label">所属部门</label>
+                    <div class="col-xs-10">
+                        <input name="udepartment" ng-maxlength="100" maxlength="100" required="required" style="resize: none;" contenteditable="true" id="udepartment" class="form-control" rows="10" placeholder="这里输入所在部门（最多50个字符）" ng-model="newUsers.departmentName" />
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label for="uphone" class="col-xs-2 control-label">权限范围</label>
+                    <div class="col-xs-10">
+                        <div class="col-xs-3">{{userCurrentData.currentAreaName}}</div>
+                        <div class="col-xs-3" ng-if="userCurrentData.identity >= 7 && areas.two.length">
+                            <select class="form-control" ng-model="areaSelecteds.two" ng-options="v.id as v.name for v in areas.two"  ng-change="getArea(areaSelecteds.two,6)"></select>
+                        </div>
+                        <div class="col-xs-3" ng-if="userCurrentData.identity >= 6 && areas.three.length">
+                            <select class="form-control" ng-model="areaSelecteds.three" ng-options="v.id as v.name for v in areas.three" ng-change="getArea(areaSelecteds.three,5)"></select>
+                        </div>
+                        <div class="col-xs-3" ng-if="userCurrentData.identity >= 5 && areas.four.length">
+                            <select class="form-control" ng-model="areaSelecteds.four" ng-options="v.id as v.name for v in areas.four" ng-change="getArea(areaSelecteds.four,4)"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label for="uphone" class="col-xs-2 control-label">联系电话</label>
+                    <div class="col-xs-10">
+                        <input name="uphone" ng-maxlength="100" maxlength="100" required="required" style="resize: none;" contenteditable="true" id="uphone" class="form-control" rows="10" placeholder="这里输入电话" ng-model="newUsers.mobile" />
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label for="upassword" class="col-xs-2 control-label">密码</label>
+                    <div class="col-xs-10">
+                        <input name="upassword" ng-maxlength="30" maxlength="30" required="required" style="resize: none;" contenteditable="true" id="upassword" class="form-control" rows="10" placeholder="密码（最多30个字符）" ng-model="newUsers.password" />
+                    </div>
+                </div>
+                <!--<div class="form-group clearfix m-t-15">-->
+                    <!--<label for="uverifyp" class="col-xs-2 control-label">确认密码</label>-->
+                    <!--<div class="col-xs-10">-->
+                        <!--<input name="uverifyp" ng-maxlength="30" maxlength="30" required="required" style="resize: none;" contenteditable="true" id="uverifyp" class="form-control" rows="10" placeholder="密码（最多30个字符）" ng-model="newUsers.departmentName" />-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="m-auto text-center">
+                    <a ui-sref="home.usermanager.list" class="btn btn-material-light-blue-50">取消</a>
+                    <a class="btn btn-material-light-blue-A400" ng-click="save()">发送</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div>
+    <h4 class="sub-cont-title">个人中心</h4>
+
+    <form action="#" name="infoForm">
+        <div class="info-contain col-xs-9 col-xs-offset-2">
+            <!--<div class="info-wrap clearfix" style="height: 60px;">-->
+                <!--<div class="col-xs-4 m-t-15">头像</div><div class="col-xs-8"><div class="header-img-wrap"><img ng-src="{{infos.headImg}}" alt="用户头像" class="img-circle header-img-size" /></div></div>-->
+            <!--</div>-->
+            <div class="info-wrap clearfix">
+                <div class="col-xs-4">名称</div><div class="col-xs-8">{{infos.institutional_name}}</div>
+            </div>
+            <!--<div class="info-wrap clearfix">-->
+                <!--<div class="col-xs-4">职务</div><div class="col-xs-8"><span ng-repeat="course in infos.coursename">{{course}}&nbsp;&nbsp;</span></div>-->
+            <!--</div>-->
+            <!--<div class="info-wrap clearfix">-->
+                <!--<div class="col-xs-4">所属部门</div><div class="col-xs-8">{{infos.username}}</div>-->
+            <!--</div>-->
+            <!--<div class="info-wrap clearfix">-->
+                <!--<div class="col-xs-4">权限范围</div><div class="col-xs-8">{{infos.username}}</div>-->
+            <!--</div>-->
+            <div class="info-wrap clearfix">
+                <div class="col-xs-4">电话</div>
+                <div class="col-xs-6">
+                    <input type="text" name="phone" id="phone" class="form-control m-t-8" ng-model="infos.mobile" required maxlength="11" ng-disabled="phoneEnable" ng-pattern="/(\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$ /" />
+                    <span class="text-danger" ng-show="infoForm.phone.$dirty && infoForm.phone.$invalid">
+                        号码格式错误
+                    </span>
+                    <span class="text-danger" ng-show="infoForm.phone.$dirty && infoForm.phone.$error.required">
+                        号码不能为空
+                    </span>
+                </div>
+                <div class="col-xs-2">
+                    <a href="javascript:void(0)" ng-click="enable('phone')">{{phoneEnable ? '修改' : '保存'}}</a>
+                </div>
+            </div>
+            <div class="info-wrap clearfix">
+                <div class="col-xs-4">账号</div><div class="col-xs-8">{{infos.userName}}</div>
+            </div>
+            <div class="info-wrap clearfix">
+                <div class="col-xs-4">密码</div>
+                <div class="col-xs-6">
+                    <input type="password" name="pwd" class="form-control m-t-8" ng-model="infos.pwd" required ng-maxlength="12" ng-disabled="true" />
+                </div>
+                <div class="col-xs-2">
+                    <a href="javascript:void(0)" ng-click="openPwd(infos.pwd)">修改</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/ng-template" id="pwd.html">
+        <div class="modal-header">
+            <h3 class="modal-title">密码修改</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-horizontal">
+                <div class="form-group label-floating">
+                    <label class="col-xs-2 control-label">旧密码</label>
+                    <div class="col-xs-5">
+                        <input type="password" class="form-control" required="required" ng-maxlength="30" name="oldPwd" ng-model="pwds.oldPwd" />
+                    </div>
+                    <div class="col-xs-5" ng-if="pwdErrors.oldFlag">
+                        <p class="text-danger">原密码输入错误！</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">新密码</label>
+                    <div class="col-xs-5">
+                        <input type="password" class="form-control" required="required" ng-maxlength="30" name="newPwd" ng-model="pwds.newPwd" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">确认密码</label>
+                    <div class="col-xs-5">
+                        <input type="password" class="form-control" required="required" ng-maxlength="30" name="confirmPwd" ng-model="pwds.confirmPwd" />
+                    </div>
+                    <div class="col-xs-5" ng-if="pwdErrors.confirmFlag">
+                        <p class="text-danger">两次密码输入不一致！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+        </div>
+    </script>
+</div>

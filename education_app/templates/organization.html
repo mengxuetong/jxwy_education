@@ -1,0 +1,20 @@
+<div class="p-l-r-15">
+    <div class="m-t-15">
+        <div class="clearfix">
+            当前用户：老师，家长
+        </div>
+        <div class="m-t-15 col-xs-6">
+            <h4>老师</h4>
+            <treecontrol class="tree-classic" tree-model="organizationRes.data.subTeacher" options="opts">
+                {{node.name}}
+            </treecontrol>
+        </div>
+        <div class="m-t-15 col-xs-6">
+            <h4>家长</h4>
+            <treecontrol class="tree-classic" tree-model="organizationRes.data.subParent" options="opts">
+                {{node.name}}
+            </treecontrol>
+        </div>
+
+    </div>
+</div>

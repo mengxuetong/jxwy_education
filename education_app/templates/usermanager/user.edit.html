@@ -1,0 +1,45 @@
+<div class="m-t-15 p-l-r-15">
+    <div class="sub-nav">
+        <a href="javascript:void(0)" ui-sref="home.usermanager.list">用户列表</a>/编辑用户
+    </div>
+    <div class="row">
+        <div class="col-xs-10 m-auto" style="float: none;">
+            <form class="">
+                <div class="form-group clearfix">
+                    <label class="col-xs-2 control-label">用户名</label>
+                    <div class="col-xs-10">
+                        {{userDetail.userName}}
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label class="col-xs-2 control-label">所属部门</label>
+                    <div class="col-xs-10">
+                        {{userDetail.depart}}
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label class="col-xs-2 control-label">权限范围</label>
+                    <div class="col-xs-10">
+                        {{userDetail.authorityScope}}
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label for="uphone" class="col-xs-2 control-label">联系电话</label>
+                    <div class="col-xs-10">
+                        <input name="uphone" ng-maxlength="100" maxlength="100" required="required" style="resize: none;" contenteditable="true" id="uphone" class="form-control" rows="10" placeholder="这里输入电话" ng-model="userDetail.mobile" />
+                    </div>
+                </div>
+                <div class="form-group clearfix m-t-15">
+                    <label for="upassword" class="col-xs-2 control-label">密码</label>
+                    <div class="col-xs-10">
+                        <input name="upassword" ng-maxlength="30" maxlength="30" required="required" style="resize: none;" contenteditable="true" id="upassword" class="form-control" rows="10" placeholder="密码（最多30个字符）" ng-model="userDetail.password" />
+                    </div>
+                </div>
+                <div class="m-auto text-center">
+                    <a ui-sref="home.usermanager.list" class="btn btn-material-light-blue-50">取消</a>
+                    <a class="btn btn-material-light-blue-A400" ng-click="save()">确定</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

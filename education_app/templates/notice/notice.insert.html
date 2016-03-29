@@ -1,0 +1,92 @@
+<style>
+    ul{
+        list-style: none;
+    }
+    .text-field{
+        cursor: pointer;
+    }
+    .check-box{
+        width: 24px;
+        height: 18px;
+        border-radius: 8px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    .cursor {cursor: pointer; vertical-align: middle;}
+</style>
+<div class="m-t-15 p-l-r-15">
+    <div>
+        <div class="sub-nav">
+            <a href="javascript:void(0)" ui-sref="home.notice.list">通知列表</a>/发送通知
+        </div>
+        <div class="notice-sent-contain">
+            <div class="form-horizontal">
+                <div class="form-group label-floating">
+                    <label for="inputNoticeTitle" class="col-xs-2 control-label">标题</label>
+                    <div class="col-xs-10">
+                        <input type="text" data-hint="" class="form-control" required="required" ng-maxlength="150" maxlength="150" name="inputNoticeTitle" id="inputNoticeTitle" ng-model="notifyContent.title" placeholder="这里输入标题（最多150个字符）" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNoticeTitle" class="col-xs-2 control-label">正文</label>
+                    <div class="col-xs-10">
+                        <textarea name="textNoticeContent" ng-maxlength="1500" maxlength="1500" required="required" style="resize: none;" contenteditable="true" id="textNoticeContent" class="form-control" rows="10" ng-model="notifyContent.content" placeholder="这里输入正文内容（最多1500个字符）..."></textarea>
+                    </div>
+                </div>
+                <!--<div class="col-xs-10 col-xs-offset-2">-->
+                <!--<i class="fa fa-2x fa-image" id="upFile"></i>-->
+                <!--</div>-->
+                <div class="col-xs-10 col-xs-offset-2">
+                    <div>最多可上传5张图片！</div>
+                    <div class="">
+                        <form action="" class="dropzone" dropzone="" id="dropzone">
+                            <div class="dz-default dz-message dropzone-previews">
+                                点击此处选择上传图片
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="row m-t-15">
+                        <div class="col-xs-3">
+                            <h5>选择接受人</h5>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="pull-right">
+                                <span class="v-top">&nbsp;全选</span>
+                                <input type="checkbox" id="checkbox-all" ng-model="master" ng-change="selectAll(master)" class="my-checkbox" /><label for="checkbox-all"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-tree">
+                        <h5>老师</h5>
+                        <tree-view tree-data="notice.teacherTree" text-field="name" value-field='id' item-clicked="notice.itemClicked($item)" checked="notice.checked" change-check="changeCheck($item)" item-checked-changed="notice.itemCheckedChanged($item)" can-checked="true" ></tree-view>
+                        <script type="text/ng-template" id="/treeView.html">
+                            <ul class="tree-view">
+                                <li ng-repeat="item in treeData" ng-include="itemTemplateUrl || '/treeItem.html'" ></li>
+                            </ul>
+                        </script>
+                        <script type="text/ng-template" id="/treeItem.html">
+                            <i ng-click="itemExpended(item, $event);" class="cursor {{getItemIcon(item)}}" style="display: inline-block;"></i>
+                            <input type="checkbox" ng-model="item.$$isChecked" class="check-box" ng-if="canChecked" ng-click="changeCheck(item)" ng-change="warpCallback('itemCheckedChanged', item, $event, $index)">
+                            <span class='text-field' ng-click="warpCallback('itemClicked', item, $event);">{{item[textField]}}</span>
+                            <ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend">
+                                <li ng-repeat="item in item.sub" ng-include="itemTemplateUrl || '/treeItem.html'"></li>
+                            </ul>
+                        </script>
+                    </div>
+                    <div class="parent-tree">
+                        <h5>家长</h5>
+                        <tree-view tree-data="notice.parentTree" text-field="name" value-field='id' item-clicked="notice.itemClicked($item)" item-checked-changed="notice.itemCheckedChanged($item)" can-checked="true" ></tree-view>
+                    </div>
+                    <div class="pull-right">
+                        <button class="btn btn-material-light-blue-50" ng-click="reset()">取消</button>
+                        <button class="btn btn-material-light-blue-A400" ng-click="notice.sendMessage()">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            Dropzone.autoDiscover = false;
+        </script>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="m-t-15 p-l-r-15">
+    <div class="sub-nav">
+        <a href="javascript:void(0)" ui-sref="home.notice.list">通知列表</a>/通知详情
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-ellipsis m-t-5">标题：{{noticeDetials.title}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 m-t-5">发送时间：{{noticeDetials.sendTime}}</div>
+        <div class="col-xs-6">
+            <div class="col-xs-4"><input type="text" class="form-control" placeholder="发送人姓名" ng-model="receivePerson" /></div>
+            <div class="col-xs-4">
+                <select name="" id="" class="form-control" ng-model="filterRread" ng-options="v.id as v.val for v in readItems" ng-change="searchFilter()">
+                    <!--<option value="2">全部</option>-->
+                    <!--<option value="1">已查看</option>-->
+                    <!--<option value="0">未查看</option>-->
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0)" class="btn btn-sm btn-material-light-blue-A100 m-t-0" ng-click="searchNoticeDetail()">搜索</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="">
+        <table class="table table-striped table-hover table-v-md">
+            <thead>
+            <tr>
+                <th width="120">接受人</th>
+                <th>查看状态</th>
+                <th>联系电话</th>
+                <th>发消息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="personDetial in noticeDetials.receivePersonAll | filter: {isRead: filterRread}">
+                <td><p>{{personDetial.receivePerson}}</p></td>
+                <td ng-class="{'text-danger':personDetial.isRead == 0}">{{personDetial.isRead ==1 ? "已查看":"未查看"}}</td>
+                <td>{{personDetial.phoneNumber}}</td>
+                <td><a href="javascript:void(0)" class="btn btn-sm btn-material-light-blue-A100" ng-click="openChat(personDetial.userId)">发消息</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="header navbar-fixed-top top-style">
+    <div class="container">
+       <h3>家校无忧</h3>
+    </div>
+</div>
+<div class="clearfix login-main-box">
+    <div class="clearfix">
+        <div class="clearfix jumbotron login-mian-wrap m-auto">
+            <form class="form-horizontal" style="width: 300px;">
+                <div class="form-group">
+                    <label for="username" class="col-xs-3 control-label">用户名</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="credentials.username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-xs-3 control-label">密码</label>
+                    <div class="col-xs-9">
+                        <input type="password" class="form-control" id="password" placeholder="密码" ng-model="credentials.password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    <div class="col-xs-9">
+                        <span style="display: inline-block;">
+                            <input id="checkbox-1" type="checkbox" ng-checked="rememberME" ng-click="remember()" class="my-checkbox" /><label for="checkbox-1" style="vertical-align: middle;"></label>
+                            <!--<input id="checkbox-1" type="checkbox" ng-checked="rememberME" ng-click="remember()" class="material_checkbox material_checkbox_success" /><label for="checkbox-1" class="material_label_checkbox"></label>-->
+                        </span>
+                        <span style="display: inline-block; vertical-align: middle;">记住用户名和密码</span>
+                    </div>
+                </div>
+                <div class="col-xs-9 col-xs-offset-3">
+                    <div class="bs-component">
+                        <a href="javascript:void(0)" class="btn btn-success" ng-click="login(credentials)">登录</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

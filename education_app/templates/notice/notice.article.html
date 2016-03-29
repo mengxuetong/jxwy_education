@@ -1,0 +1,42 @@
+<div class="m-t-15 p-l-r-15">
+    <div class="notice-article">
+        <div class="article-t-top">
+            <h1 class="article-title">{{noticeArticle.title}}
+                <!--<span>-->
+                <!--来自：组委会-->
+                <!--<span class="time">2015-03-27 15:27</span>-->
+                <!--</span>-->
+            </h1>
+        </div>
+        <div class="article-content solid-bottom">
+            <p>{{noticeArticle.content}}</p>
+            <div class="article-img-list m-t-15" ng-repeat="img in noticeArticle.images">
+                <img ng-src="{{img}}" />
+            </div>
+        </div>
+        <div class="sents m-t-15">
+            <h5>发送范围：</h5>
+            <div ng-if="article.teacherTree.length >0">
+                老师：
+                <tree-view tree-data="article.teacherTree" text-field="name" value-field='id' can-checked="false" ></tree-view>
+            </div>
+            <div ng-if="article.parentTree.length >0">
+                家长：
+                <tree-view tree-data="article.parentTree" text-field="name" value-field='id' can-checked="false" ></tree-view>
+            </div>
+            <script type="text/ng-template" id="/treeView.html">
+                <ul class="tree-view">
+                    <li ng-repeat="item in treeData" ng-include="itemTemplateUrl || '/treeItem.html'" ></li>
+                </ul>
+            </script>
+            <script type="text/ng-template" id="/treeItem.html">
+                <i ng-click="itemExpended(item, $event);" class="cursor {{getItemIcon(item)}}" style="display: inline-block;"></i>
+                <input type="checkbox" ng-model="item.$$isChecked" class="check-box" ng-if="canChecked" ng-click="changeCheck(item)" ng-change="warpCallback('itemCheckedChanged', item, $event, $index)">
+                <span class='text-field' ng-click="warpCallback('itemClicked', item, $event);">{{item[textField]}}</span>
+                <ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend">
+                    <li ng-repeat="item in item.sub" ng-include="itemTemplateUrl || '/treeItem.html'"></li>
+                </ul>
+            </script>
+        </div>
+    </div>
+</div>

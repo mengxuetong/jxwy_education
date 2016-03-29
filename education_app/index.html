@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <title>家校无忧</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="bookmark" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/non-responsive.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link href="components/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
+    <link href="components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
+    <!--<link href="components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" rel="stylesheet">-->
+    <link href="components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+    <link href="components/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+    <!--<link href="css/material-bootstrap-theme.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/tree-control-attribute.css"/>
+    <link rel="stylesheet" href="css/tree-control.css"/>
+    <script data-main="js/main" src="components/requirejs/require.js"></script>
+</head>
+
+<body ng-controller="MainController" ng-cloak>
+    <div class="container navbar-fixed-top" id="alert-wrap" style="z-index: 11000"></div>
+    <div class="ui-view"></div>
+    <div class="loading-modal modal-layer" ng-show="loading">
+        <div class="loading">
+            <img src="images/loading.gif" alt="loading" />
+            <span ng-bind="loadingText"></span>
+        </div>
+    </div>
+    <div class="loading-modal modal-layer" ng-show="upImgFlag">
+        <div class="loading">
+            <img src="images/loading.gif" alt="loading" />
+        </div>
+    </div>
+    <iframe src="manifest.html" marginheight="0" marginwidth="0" frameborder="0" width="0" height="0" scrolling="no"></iframe>
+</body>
+</html>
